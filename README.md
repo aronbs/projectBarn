@@ -23,12 +23,23 @@ A rough list includes:
 - Typography
 - Button
   - Primary and transparent
-- Navigation bar (if we go with bottom navigation)
+- Input
+- Menu
 - Booking card
 - Alerts
+- Side menu
 
 ## Goals 🥅
 
-1. [ ] Base react native app
-2. [ ] Storybook setup with our first component
-3. [ ] ....
+1. [x] Base react native app
+2. [x] Storybook setup with our first component
+3. [ ] Login page done
+4. [ ] Keycode page done
+
+## Setup
+
+You'll need to make sure you have watchman installed first (if on MacOS) `brew install watchman`
+
+Run `yarn` to install dependencies
+
+Run `yarn ios` to start up the app up on iOS
