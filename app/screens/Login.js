@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StatusBar } from "react-native";
 import HeaderTitle from "../components/HeaderTitle";
 
 class LoginScreen extends Component {
@@ -10,7 +10,8 @@ class LoginScreen extends Component {
   render() {
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <Text>Home Screen</Text>
+        <StatusBar barStyle="light-content" />
+        <Text>Login Screen</Text>
       </View>
     );
   }
