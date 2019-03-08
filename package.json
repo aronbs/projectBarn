@@ -9,6 +9,9 @@
     "test": "jest"
   },
   "dependencies": {
+    "@storybook/addon-actions": "^4.1.14",
+    "@storybook/addon-links": "^4.1.14",
+    "@storybook/react-native": "^4.1.14",
     "react": "16.6.3",
     "react-native": "0.58.6",
     "react-native-gesture-handler": "^1.1.0",
