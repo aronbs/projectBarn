@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { View, Text, StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 import HeaderTitle from "../components/HeaderTitle";
+import Typography from "../components/Typography";
+import { SPACING } from "../styles";
 
 class LoginScreen extends Component {
   static navigationOptions = {
@@ -9,9 +11,18 @@ class LoginScreen extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <View>
         <StatusBar barStyle="light-content" />
-        <Text>Login Screen</Text>
+
+        <View
+          style={{
+            marginVertical: SPACING.LARGEST,
+            marginHorizontal: SPACING.LARGE
+          }}
+        >
+          <Typography.Heading>Welcome back</Typography.Heading>
+          <Typography.Body>Login to start managing your rides.</Typography.Body>
+        </View>
       </View>
     );
   }
