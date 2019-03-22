@@ -35,3 +35,5 @@ export const FONT = {
     BOLD: "800"
   }
 };
+
+export const BORDER_RADIUS = 2;

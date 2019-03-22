@@ -1,9 +1,10 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { COLOURS, SPACING, FONT } from "../styles";
+import Badge from "./Badge";
+import { COLOURS, SPACING, FONT, BORDER_RADIUS } from "../styles";
 
-const Location = ({ text, paddingBottom = false }) => (
-  <View style={{ paddingBottom: paddingBottom ? SPACING.LARGE : 0 }}>
+const Location = ({ text }) => (
+  <View style={{ paddingBottom: SPACING.LARGE }}>
     <Text style={styles.locationHeading}>Pickup Location</Text>
     <Text>{text}</Text>
   </View>
@@ -16,14 +17,14 @@ const Booking = ({ pickupTime, pickupLocation, dropoffLocation }) => (
     </View>
     <View style={styles.locationsContainer}>
       <Location text={pickupLocation} paddingBottom />
-      <Location text={dropoffLocation} />
+      <Location text={dropoffLocation} paddingBottom />
+      <Badge variant="error" text="Action required" />
     </View>
   </View>
 );
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 2,
     flexDirection: "row",
     backgroundColor: COLOURS.WHITE,
     padding: SPACING.LARGE,
