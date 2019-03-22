@@ -1,4 +1,5 @@
 import React from "react";
+import { View } from "react-native";
 import {
   createStackNavigator,
   createDrawerNavigator,
@@ -19,8 +20,9 @@ const BookingsNavigator = createStackNavigator(
         headerLeft: (
           <Icon
             name="menu"
-            size={26}
+            size={24}
             color="white"
+            style={{ marginLeft: 6 }}
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
           />
         )
