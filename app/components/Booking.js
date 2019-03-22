@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     flexDirection: "row",
     backgroundColor: COLOURS.WHITE,
-    padding: SPACING.LARGE
+    padding: SPACING.LARGE,
+    marginVertical: SPACING.MEDIUM
   },
   pickupTimeContainer: {
     borderRightWidth: 1,
