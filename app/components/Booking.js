@@ -2,19 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { COLOURS, SPACING, FONT } from "../styles";
 
+const Location = ({ text, paddingBottom = false }) => (
+  <View style={{ paddingBottom: paddingBottom ? SPACING.LARGE : 0 }}>
+    <Text style={styles.locationHeading}>Pickup Location</Text>
+    <Text>{text}</Text>
+  </View>
+);
+
 const Booking = ({ pickupTime, pickupLocation, dropoffLocation }) => (
   <View style={styles.container}>
     <View style={styles.pickupTimeContainer}>
       <Text style={styles.pickupTimeText}>{pickupTime}</Text>
     </View>
     <View style={styles.locationsContainer}>
-      <View style={styles.locationContainer}>
-        <Text style={styles.locationHeading}>Pickup Location</Text>
-        <Text>{pickupLocation}</Text>
-      </View>
-
-      <Text style={styles.locationHeading}>Dropoff Location</Text>
-      <Text>{dropoffLocation}</Text>
+      <Location text={pickupLocation} paddingBottom />
+      <Location text={dropoffLocation} />
     </View>
   </View>
 );
@@ -37,10 +39,8 @@ const styles = StyleSheet.create({
     fontWeight: FONT.WEIGHT.MEDIUM
   },
   locationsContainer: {
-    paddingLeft: SPACING.LARGE
-  },
-  locationContainer: {
-    marginBottom: SPACING.LARGE
+    paddingLeft: SPACING.LARGE,
+    flex: 1
   },
   locationHeading: {
     color: COLOURS.GRAYSCALE,

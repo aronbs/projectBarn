@@ -15,13 +15,13 @@ const BookingsNavigator = createStackNavigator(
     Bookings: {
       screen: BookingsScreen,
       navigationOptions: ({ navigation }) => ({
-        headerTitle: "Last updated", // Title to appear in status bar
+        headerTitle: "Scheduled Rides",
         headerLeft: (
           <Icon
             name="menu"
             size={24}
             color="white"
-            style={{ marginLeft: 6 }}
+            style={{ marginLeft: 10 }}
             onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
           />
         )
