@@ -53,28 +53,4 @@ const AppNavigator = createDrawerNavigator(
   }
 );
 
-/* const AppNavigator = createStackNavigator(
-  {
-    Login: {
-      screen: LoginScreen,
-      navigationOptions: {
-        headerTitle: <HeaderTitle />
-      }
-    },
-    Main: {
-      screen: MainNavigator
-    }
-  },
-  {
-    initialRouteName: "Main",
-    defaultNavigationOptions: {
-      headerTintColor: "#fff",
-      headerStyle: {
-        backgroundColor: "#003580"
-      }
-    },
-    headerMode: "float"
-  }
-); */
-
 export default createAppContainer(AppNavigator);
