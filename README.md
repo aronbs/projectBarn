@@ -40,6 +40,16 @@ A rough list includes:
 
 You'll need to make sure you have watchman installed first (if on MacOS) `brew install watchman`
 
+For iOS dependencies, you'll need cocoapods as well `sudo gem install cocoapods`
+
 Run `yarn` to install dependencies
 
+For iOS, you'll need to install cocoapods dependencies
+
+```
+cd ios
+pods install
+```
+
 Run `yarn ios` to start up the app up on iOS
+Run `yarn android` to start up the app on Android
