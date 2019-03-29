@@ -1,6 +1,7 @@
 package com.projectbarn;
 
 import android.app.Application;
+import com.airbnb.android.react.maps.MapsPackage;
 
 import com.facebook.react.ReactApplication;
 import com.oblador.vectoricons.VectorIconsPackage;
@@ -25,8 +26,9 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new VectorIconsPackage(),
-            new RNGestureHandlerPackage()
+          new VectorIconsPackage(),
+          new RNGestureHandlerPackage(),
+          new MapsPackage()
       );
     }
 
