@@ -5,7 +5,6 @@ import {
   StatusBar,
   StyleSheet
 } from "react-native";
-import HeaderTitle from "../components/HeaderTitle";
 import Typography from "../components/Typography";
 import Button from "../components/Button";
 import { SPACING } from "../styles";
@@ -27,25 +26,17 @@ const styles = StyleSheet.create({
   }
 });
 
-class LoginScreen extends Component {
-  static navigationOptions = {
-    headerTitle: <HeaderTitle />
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar barStyle="light-content" />
-        <View style={styles.textContainer}>
-          <Typography.Heading>Welcome back</Typography.Heading>
-          <Typography.Body>Login to start managing your rides.</Typography.Body>
-        </View>
-        <KeyboardAvoidingView behavior="padding" style={styles.buttonContainer}>
-          <Button title="Next" type="Primary" onPress={() => null} />
-        </KeyboardAvoidingView>
-      </View>
-    );
-  }
-}
+const LoginScreen = () => (
+  <View style={styles.container}>
+    <StatusBar barStyle="light-content" />
+    <View style={styles.textContainer}>
+      <Typography.Heading>Welcome back</Typography.Heading>
+      <Typography.Body>Login to start managing your rides.</Typography.Body>
+    </View>
+    <KeyboardAvoidingView behavior="padding" style={styles.buttonContainer}>
+      <Button title="Next" type="Primary" onPress={() => null} />
+    </KeyboardAvoidingView>
+  </View>
+);
 
 export default LoginScreen;

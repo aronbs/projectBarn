@@ -1,10 +1,31 @@
-import { createStackNavigator, createAppContainer } from "react-navigation";
+import React from "react";
+import {
+  createStackNavigator,
+  createDrawerNavigator,
+  createAppContainer,
+  DrawerActions
+} from "react-navigation";
+import Icon from "react-native-vector-icons/Feather";
 import LoginScreen from "./app/screens/Login";
+import BookingsScreen from "./app/screens/Bookings";
+import HeaderTitle from "./app/components/HeaderTitle";
 
-const AppNavigator = createStackNavigator(
+const BookingsNavigator = createStackNavigator(
   {
-    Login: {
-      screen: LoginScreen
+    Bookings: {
+      screen: BookingsScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: "Scheduled Rides",
+        headerLeft: (
+          <Icon
+            name="menu"
+            size={24}
+            color="white"
+            style={{ marginLeft: 10 }}
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          />
+        )
+      })
     }
   },
   {
@@ -14,6 +35,22 @@ const AppNavigator = createStackNavigator(
         backgroundColor: "#003580"
       }
     }
+  }
+);
+const AppNavigator = createDrawerNavigator(
+  {
+    Login: {
+      screen: LoginScreen,
+      navigationOptions: {
+        headerTitle: <HeaderTitle />
+      }
+    },
+    Bookings: {
+      screen: BookingsNavigator
+    }
+  },
+  {
+    initialRouteName: "Bookings"
   }
 );
 

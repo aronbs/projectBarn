@@ -5,7 +5,11 @@ export const COLOURS = {
   PRIMARY: "#003580",
   PRIMARY_LIGHTER: "#CCE1FF",
   COMPLEMENT: "#FEBB02",
-  GRAYSCALE: "#707070"
+  GRAYSCALE_DARK: "#383838",
+  GRAYSCALE: "#707070",
+  GRAYSCALE_LIGHT: "#BDBDBD",
+  GRAYSCALE_LIGHTER: "#EDEDED",
+  GRAYSCALE_LIGHTEST: "#F7F7F7"
 };
 
 export const SPACING = {
@@ -31,3 +35,5 @@ export const FONT = {
     BOLD: "800"
   }
 };
+
+export const BORDER_RADIUS = 2;
