@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOURS.GRAYSCALE_LIGHTER,
     flex: 1,
-    padding: SPACING.MEDIUM
+    paddingVertical: SPACING.LARGE,
+    paddingHorizontal: SPACING.MEDIUM
   }
 });
 
