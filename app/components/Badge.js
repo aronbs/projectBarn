@@ -16,7 +16,8 @@ const Badge = ({ text, variant }) => (
       style={{
         color: "white",
         fontWeight: FONT.WEIGHT.MEDIUM,
-        fontSize: FONT.SIZE.SMALLER
+        fontSize: FONT.SIZE.SMALLER,
+        width: 100
       }}
     >
       {text}
