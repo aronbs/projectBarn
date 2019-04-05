@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import Badge from "./Badge";
-import { COLOURS, SPACING, FONT, BORDER_RADIUS } from "../styles";
+import { COLOURS, SPACING, FONT } from "../styles";
 
 const Location = ({ text }) => (
   <View style={{ paddingBottom: SPACING.LARGE }}>
@@ -17,8 +17,8 @@ const Booking = ({ pickupTime, pickupLocation, dropoffLocation, onPress }) => (
         <Text style={styles.pickupTimeText}>{pickupTime}</Text>
       </View>
       <View style={styles.locationsContainer}>
-        <Location text={pickupLocation} paddingBottom />
-        <Location text={dropoffLocation} paddingBottom />
+        <Location text={pickupLocation} />
+        <Location text={dropoffLocation} />
         <Badge variant="error" text="Action required" />
       </View>
     </View>
@@ -30,25 +30,27 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: COLOURS.WHITE,
     padding: SPACING.LARGE,
-    marginVertical: SPACING.MEDIUM
+    marginVertical: SPACING.SMALL
   },
   pickupTimeContainer: {
     borderRightWidth: 1,
     borderRightColor: COLOURS.GRAYSCALE_LIGHTEST,
     flexDirection: "row",
-    width: 60
+    justifyContent: "center",
+    width: 65
   },
   pickupTimeText: {
     fontSize: FONT.SIZE.MEDIUM,
     fontWeight: FONT.WEIGHT.MEDIUM,
-    flex: 1
+    flex: 1,
+    color: COLOURS.BLACK
   },
   locationsContainer: {
     paddingLeft: SPACING.LARGE,
     flex: 1
   },
   locationHeading: {
-    color: COLOURS.GRAYSCALE,
+    color: COLOURS.BLACK,
     marginBottom: SPACING.SMALL
   }
 });

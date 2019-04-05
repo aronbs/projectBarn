@@ -9,12 +9,11 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOURS.GRAYSCALE_LIGHTER,
     flex: 1,
-    padding: SPACING.LARGE
+    padding: SPACING.MEDIUM
   }
 });
 
 const FAKE_BOOKINGS = [
-  {},
   {
     pickupTime: "8:10",
     pickupLocation: "Somewhere over here, Manchester, United Kingdom",
