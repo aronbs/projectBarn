@@ -68,7 +68,7 @@
 		9D6E4FE8EEBF436FA1CC0BA2 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6DBBCF5E5CAE43D2AB47F26A /* Ionicons.ttf */; };
 		70EB5D24DA8C478EAD1C0B50 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61D9FA8744394E309421E048 /* MaterialCommunityIcons.ttf */; };
 		DB68927EE6284DF4BCB1B81C /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9372CA6876594C039C3A2D79 /* MaterialIcons.ttf */; };
-FF58EF0E74B64EF693907F4F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B5BDE0A5BCF4A918BD7B662 /* Octicons.ttf */; };
+		FF58EF0E74B64EF693907F4F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B5BDE0A5BCF4A918BD7B662 /* Octicons.ttf */; };
 		320EE4C4602C481799E91DC5 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D34386832A7B46BAAAF60DF2 /* SimpleLineIcons.ttf */; };
 		2C072BBD02F64585AFE60F74 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 85C9D4EF0EAA4F5C868061C3 /* Zocial.ttf */; };
 /* End PBXBuildFile section */
