@@ -10,6 +10,9 @@ import Icon from "react-native-vector-icons/Feather";
 import LoginScreen from "./app/screens/Login";
 import BookingsScreen from "./app/screens/Bookings";
 import BookingDetailScreen from "./app/screens/BookingDetail";
+import SettingsScreen from "./app/screens/Settings";
+import LanguageScreen from "./app/screens/Settings/Language";
+import DriverNameScreen from "./app/screens/Settings/DriverName";
 import HeaderTitle from "./app/components/HeaderTitle";
 
 const Burger = ({ onPress }) => (
@@ -21,6 +24,19 @@ const Burger = ({ onPress }) => (
     onPress={onPress}
   />
 );
+
+const NAVIGATION_OPTIONS = {
+  headerTintColor: "#fff",
+  headerStyle: {
+    backgroundColor: "#003580"
+  },
+  headerTitleStyle: {
+    ...Platform.select({
+      ios: { fontFamily: "Arial" },
+      android: { fontFamily: "Roboto" }
+    })
+  }
+};
 
 const BookingsNavigator = createStackNavigator(
   {
@@ -43,20 +59,41 @@ const BookingsNavigator = createStackNavigator(
     }
   },
   {
-    defaultNavigationOptions: {
-      headerTintColor: "#fff",
-      headerStyle: {
-        backgroundColor: "#003580"
-      },
-      headerTitleStyle: {
-        ...Platform.select({
-          ios: { fontFamily: "Arial" },
-          android: { fontFamily: "Roboto" }
-        })
-      }
-    }
+    defaultNavigationOptions: NAVIGATION_OPTIONS
   }
 );
+
+const SettingsNavigator = createStackNavigator(
+  {
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: "Settings",
+        headerLeft: (
+          <Burger
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          />
+        )
+      })
+    },
+    SettingsLanguage: {
+      screen: LanguageScreen,
+      navigationOptions: {
+        headerTitle: "Change Language"
+      }
+    },
+    SettingsDriverName: {
+      screen: DriverNameScreen,
+      navigationOptions: {
+        headerTitle: "Change Name"
+      }
+    }
+  },
+  {
+    defaultNavigationOptions: NAVIGATION_OPTIONS
+  }
+);
+
 const AppNavigator = createDrawerNavigator(
   {
     Login: {
@@ -67,10 +104,13 @@ const AppNavigator = createDrawerNavigator(
     },
     Bookings: {
       screen: BookingsNavigator
+    },
+    Settings: {
+      screen: SettingsNavigator
     }
   },
   {
-    initialRouteName: "Bookings"
+    initialRouteName: "Settings"
   }
 );
 
