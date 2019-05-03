@@ -10,4 +10,7 @@ import { name as appName } from "./app.json";
 
 const displayApp = __DEV__ ? StorybookUI : App;
 
+// Disables all warning messages - temporary (Annoying)
+console.disableYellowBox = true;
+
 AppRegistry.registerComponent(appName, () => App);

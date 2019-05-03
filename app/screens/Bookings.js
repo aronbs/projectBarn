@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { View, ScrollView, StatusBar, StyleSheet } from "react-native";
+import { ScrollView, StatusBar, StyleSheet } from "react-native";
 import { withNavigation, NavigationActions } from "react-navigation";
 import Booking from "../components/Booking";
 import Typography from "../components/Typography";
 import { COLOURS, SPACING } from "../styles";
+import EmptyState from "../components/EmptyState";
 
 const styles = StyleSheet.create({
   container: {
@@ -15,127 +16,72 @@ const styles = StyleSheet.create({
 });
 
 const FAKE_BOOKINGS = [
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  },
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  },
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  },
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  },
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  },
-  {
-    pickupTime: "8:10",
-    pickupLocation: "Somewhere over here, Manchester, United Kingdom",
-    dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
-  }
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // },
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // },
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // },
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // },
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // },
+  // {
+  //   pickupTime: "8:10",
+  //   pickupLocation: "Somewhere over here, Manchester, United Kingdom",
+  //   dropoffLocation: "Somewhere over there, Stockport, United Kingdom"
+  // }
 ];
 
 class BookingsScreen extends Component {
   render() {
     const { navigation } = this.props;
-    return (
-      <ScrollView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor={COLOURS.PRIMARY} />
-        <Typography.Heading>Today</Typography.Heading>
+    var bookings = [];
+
+    for (let i = 0; i < FAKE_BOOKINGS.length; i++) {
+      bookings.push(
         <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
+          key={i}
+          pickupTime={FAKE_BOOKINGS[i].pickupTime}
+          pickupLocation={FAKE_BOOKINGS[i].pickupLocation}
+          dropoffLocation={FAKE_BOOKINGS[i].dropoffLocation}
           onPress={() =>
             navigation.dispatch(
               NavigationActions.navigate({ routeName: "BookingDetail" })
             )
           }
         />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-        <Booking
-          pickupTime="8:10"
-          pickupLocation="Somewhere over here, Manchester, United Kingdom"
-          dropoffLocation="Somewhere over there, Stockport, United Kingdom"
-          onPress={() =>
-            navigation.dispatch(
-              NavigationActions.navigate({ routeName: "BookingDetail" })
-            )
-          }
-        />
-      </ScrollView>
-    );
+      );
+    }
+    if (FAKE_BOOKINGS.length > 0) {
+      return (
+        <ScrollView style={styles.container}>
+          <StatusBar
+            barStyle="light-content"
+            backgroundColor={COLOURS.PRIMARY}
+          />
+          <Typography.Heading>Today</Typography.Heading>
+          {bookings}
+        </ScrollView>
+      );
+    } else {
+      return <EmptyState />;
+    }
   }
 }
 

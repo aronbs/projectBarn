@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: FONT.SIZE.MEDIUM,
     color: COLOURS.BLACK,
-    fontWeight: FONT.WEIGHT.MEDIUM
+    fontWeight: FONT.WEIGHT.REGULAR
   }
 });
 
