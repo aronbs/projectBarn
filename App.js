@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Icon from "react-native-vector-icons/Feather";
 import { Platform, ScrollView, Text, View, SafeAreaView } from "react-native";
 import {
   NavigationActions,
@@ -7,15 +8,15 @@ import {
   createAppContainer,
   DrawerActions
 } from "react-navigation";
-import Icon from "react-native-vector-icons/Feather";
 
-import { COLOURS } from "./app/styles";
-import LoginScreen from "./app/screens/Login";
-import BookingsScreen from "./app/screens/Bookings";
-import PasscodeScreen from "./app/screens/Passcode";
-import HeaderTitle from "./app/components/HeaderTitle";
-import BookingDetailScreen from "./app/screens/BookingDetail";
+import { HeaderTitle } from "./app/components";
 import { COLOURS, SPACING, FONT } from "./app/styles";
+import {
+  BookingsScreen,
+  BookingDetailScreen,
+  LoginScreen,
+  PasscodeScreen
+} from "./app/screens";
 
 const Burger = ({ onPress }) => (
   <Icon
