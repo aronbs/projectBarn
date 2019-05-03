@@ -1,5 +1,5 @@
 import React, { PureComponent } from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { Text, TextInput, View, StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   label: {

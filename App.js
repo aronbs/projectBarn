@@ -15,7 +15,10 @@ import {
   BookingsScreen,
   BookingDetailScreen,
   LoginScreen,
-  PasscodeScreen
+  PasscodeScreen,
+  SettingsScreen,
+  LanguageScreen,
+  DriverNameScreen
 } from "./app/screens";
 
 const Burger = ({ onPress }) => (
@@ -27,6 +30,19 @@ const Burger = ({ onPress }) => (
     style={{ marginLeft: 10 }}
   />
 );
+
+const NAVIGATION_OPTIONS = {
+  headerTintColor: COLOURS.WHITE,
+  headerStyle: {
+    backgroundColor: COLOURS.PRIMARY
+  },
+  headerTitleStyle: {
+    ...Platform.select({
+      ios: { fontFamily: "Arial" },
+      android: { fontFamily: "Roboto" }
+    })
+  }
+};
 
 const BookingsNavigator = createStackNavigator(
   {
@@ -49,18 +65,38 @@ const BookingsNavigator = createStackNavigator(
     }
   },
   {
-    defaultNavigationOptions: {
-      headerTintColor: COLOURS.WHITE,
-      headerStyle: {
-        backgroundColor: COLOURS.PRIMARY
-      },
-      headerTitleStyle: {
-        ...Platform.select({
-          ios: { fontFamily: "Arial" },
-          android: { fontFamily: "Roboto" }
-        })
+    defaultNavigationOptions: NAVIGATION_OPTIONS
+  }
+);
+
+const SettingsNavigator = createStackNavigator(
+  {
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: ({ navigation }) => ({
+        headerTitle: "Settings",
+        headerLeft: (
+          <Burger
+            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
+          />
+        )
+      })
+    },
+    SettingsLanguage: {
+      screen: LanguageScreen,
+      navigationOptions: {
+        headerTitle: "Change Language"
+      }
+    },
+    SettingsDriverName: {
+      screen: DriverNameScreen,
+      navigationOptions: {
+        headerTitle: "Change Name"
       }
     }
+  },
+  {
+    defaultNavigationOptions: NAVIGATION_OPTIONS
   }
 );
 
@@ -86,27 +122,22 @@ const PasscodeNavigator = createStackNavigator(
         })
       }
     }
+  },
+  {
+    defaultNavigationOptions: NAVIGATION_OPTIONS
   }
 );
 
 const AppNavigator = createDrawerNavigator(
   {
     Login: {
-      screen: LoginScreen,
-      navigationOptions: {
-        headerTitle: <HeaderTitle />,
-        drawerIcon: ({ tintColor }) => (
-          <Icon name="log-in" size={24} color={tintColor} />
-        )
-      }
+      screen: LoginScreen
     },
     Bookings: {
-      screen: BookingsNavigator,
-      navigationOptions: {
-        drawerIcon: ({ tintColor }) => (
-          <Icon name="book" size={24} color={tintColor} />
-        )
-      }
+      screen: BookingsNavigator
+    },
+    Settings: {
+      screen: SettingsNavigator
     },
     Passcode: {
       screen: PasscodeNavigator
@@ -114,6 +145,11 @@ const AppNavigator = createDrawerNavigator(
   },
   {
     initialRouteName: "Bookings",
+    navigationOptions: {
+      drawerIcon: ({ tintColor }) => (
+        <Icon name="book" size={24} color={tintColor} />
+      )
+    },
     contentComponent: props => <SideMenu {...props} />
   }
 );
@@ -195,7 +231,7 @@ class SideMenu extends Component {
                 paddingTop: SPACING.SMALLER
               }}
             >
-              <Text>Bookings</Text>
+              <Text onPress={this.navigateToScreen("Bookings")}>Bookings</Text>
             </View>
           </View>
           <View

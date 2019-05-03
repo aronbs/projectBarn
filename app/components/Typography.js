@@ -18,8 +18,7 @@ const styles = StyleSheet.create({
   body: {
     fontSize: FONT.SIZE.MEDIUM,
     color: COLOURS.BLACK,
-    fontWeight: FONT.WEIGHT.REGULAR,
-    flex: 1
+    fontWeight: FONT.WEIGHT.REGULAR
   }
 });
 
